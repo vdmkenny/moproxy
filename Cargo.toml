@@ -56,6 +56,9 @@ nix = { version = "0.27", features = ["fs", "net", "socket"] }
 sd-notify = { version = "0.4", optional = true }
 tracing-journald = { version = "0.3", optional = true }
 
+[target.aarch64-unknown-linux-gnu]
+strip = { path = "aarch64-linux-gnu-strip", args = ["--strip-all"] }
+
 [features]
 default = ["web_console", "score_script", "systemd", "rich_web"]
 web_console = ["hyper"]
