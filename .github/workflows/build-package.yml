@@ -68,7 +68,7 @@ jobs:
           target: ${{ matrix.platform.target }}
           toolchain: ${{ matrix.platform.toolchain }}
           args: --release
-          strip: yes
+          strip: false
       - name: Packaging for Debian - x84_64
         if: matrix.platform.target == 'x86_64-unknown-linux-gnu'
         run: |
