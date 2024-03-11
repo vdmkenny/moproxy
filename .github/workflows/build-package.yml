@@ -61,6 +61,12 @@ jobs:
       - name: Install musl-tools
         if: contains(matrix.platform.target, 'linux-musl')
         run: sudo apt install musl-tools
+      - name: Install RPM tools
+        if: contains(matrix.platform.target, 'linux-gnu')
+        run: sudo apt-get install rpm
+      - name: Install aarch64 binutils
+        if: matrix.platform.target == 'aarch64-unknown-linux-gnu'
+        run: sudo apt-get install binutils-aarch64-linux-gnu
       - name: Build
         uses: houseabsolute/actions-rust-cross@v0
         with:
